@@ -4,7 +4,7 @@
 // Return the sum of all of the numbers in the array. For example, given
 // [1, 2, 3, 4], then return 10. If the array is empty, return 0.
 function sum(arr) {
-  // YOUR CODE HERE
+  
 }
 
 
@@ -14,7 +14,7 @@ function sum(arr) {
 // Return the product of all of the numbers in the array. For example, given
 // [1, 2, 3, 4], then return 24. If the array is empty, return 1.
 function product(arr) {
-  // YOUR CODE HERE
+
 }
 
 // Define a function named concatenate that takes in one argument.
@@ -24,7 +24,7 @@ function product(arr) {
 // ['hello', 'my', 'name', 'is', 'ken'], then return 'hellomynameisken'. If the
 // array is empty, return ''.
 function concatenate(arr) {
-  // YOUR CODE HERE
+return arr.join('');
 }
 
 // Define a function named repeat that takes in two arguments.
@@ -34,7 +34,7 @@ function concatenate(arr) {
 // Return a new string containing times copies of the input str. For example,
 // given 'hi' and 4, then return 'hihihihi'.
 function repeat(str, times) {
-  // YOUR CODE HERE
+  return str.repeat(times)
 }
 
 
@@ -44,7 +44,11 @@ function repeat(str, times) {
 // Return a new array with any grade less than 70 filtered out. For example,
 // given [88, 67, 70, 92, 53], then return [88, 70, 92].
 function filterPassingGrades(grades) {
-  // YOUR CODE HERE
+var jamesdean = (grades) => grades >= 70
+let filteredarrays = grades.filter(jamesdean)
+return filteredarrays
+// [100, 45, 90, 60]
+// Expected [100, 90] 
 }
 
 
@@ -56,7 +60,12 @@ function filterPassingGrades(grades) {
 // Return a new array of numbers where all from elements are replaced with to.
 // For example, given [1, 3, 2, 1, 3], 1, and 4, then return [4, 3, 2, 4, 3].
 function replace(arr, from, to) {
-  // YOUR CODE HERE
+  for (var i = 0; i < arr.length; i++) {
+    if(arr[i] === from){
+      arr [i] = to
+    }
+  }
+  return arr
 }
 
 
@@ -70,7 +79,7 @@ function replace(arr, from, to) {
 //
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
 function flatten(arr) {
-  // YOUR CODE HERE
+return arr.flat()
 }
 
 
@@ -82,8 +91,12 @@ function flatten(arr) {
 //
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max
 function max(arr) {
-  // YOUR CODE HERE
+var filtered_1 = arr.filter(x => !!x)
+var filtered_2 = Math.max(...arr)
+return filtered_2
 }
+//If any of the arguments are NaN or cannot be converted to a number, the result is NaN.
+//isNan
 
 
 // Define a function named min that takes in one argument.
@@ -94,7 +107,9 @@ function max(arr) {
 //
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min
 function min(arr) {
-  // YOUR CODE HERE
+var filtered_3 = arr.filter(x => !!x)
+var filtered_4 = Math.min(...filtered_3);
+return filtered_4
 }
 
 
@@ -104,9 +119,13 @@ function min(arr) {
 // Return the mean (i.e. average) of all of the numbers in the array. For
 // example, given [1, 2, 6], then return 3. If the array is empty, return null.
 function mean(arr) {
-  // YOUR CODE HERE
+  var i = 0, sum = 0, len = arr.length;
+  while (i < len) {
+      sum = sum + arr[i++];
+  }
+  return sum / len;
 }
-
+//[ 1, 2, 3, 4, 5 ] (I do not now what I am doing wrong here) 
 
 // Define a function named median that takes in one argument.
 //    arr (array of numbers)
@@ -120,9 +139,11 @@ function mean(arr) {
 //
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
 function median (arr) {
-  // YOUR CODE HERE
+  var sorting = arr.sort();
+  
 }
 
+//[ 1, 1, 2, 3, 4, 5, 6 ] (ran out of time to solve this one)
 
 // Define a function named contains that takes in two arguments.
 //     arr (array of strings)
@@ -147,9 +168,12 @@ function contains(arr, str) {
 //
 // Tip: Use Google to learn more about calculating the distance.
 function distance(point1, point2) {
-  // YOUR CODE HERE
+var a = point1 ['x'] - point2 ['x'] 
+var b = point1 ['y'] - point2 ['y']
+return Math.sqrt(a*a + b*b);
 }
-
+// point1 = x: 0, y: 3 
+// point2 = { x: 0, y: 0 }
 
 // Define a function named combine that takes in two arguments.
 //    obj1 (object)
@@ -171,8 +195,9 @@ function combine(obj1, obj2) {
 // Return a new object where the keys and values of the argument are inverted.
 // For example, given { a: 1, b: 2 }, then return { '1': 'a', '2': 'b' }.
 function invert(obj) {
-  // YOUR CODE HERE
+  
 }
+
 
 
 // Define a function named values that takes in one argument.
@@ -181,7 +206,8 @@ function invert(obj) {
 // Return an array of the values of the object. For example, given
 // { a: 1, b: 2, c: 3 }, then return [1, 2, 3].
 function values(obj) {
-  // YOUR CODE HERE
+var gettingObjects = Object.values(obj)
+return gettingObjects
 }
 
 
@@ -192,7 +218,11 @@ function values(obj) {
 // argument. For example, given { a: 1, b: 2 }, then return
 // [['a', 1], ['b', 2]].
 function toPairs(obj) {
-  // YOUR CODE HERE
+  var arr = []
+  for (var key in obj){
+    arr.push([key, obj[key]])
+  }
+  return arr
 }
 
 
@@ -203,5 +233,9 @@ function toPairs(obj) {
 // argument. For example, given [['a', 1], ['b', 2]], then return
 // { a: 1, b: 2 }.
 function fromPairs(arr) {
-  // YOUR CODE HERE
+  var hash = {}
+  for (var i = 0; i < arr.length; i++) {
+  hash [arr [i] [0]]= arr [i] [1]
+  }
+  return hash
 }

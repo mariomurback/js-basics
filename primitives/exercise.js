@@ -5,6 +5,7 @@
 // Return the sum of these two arguments
 function sum(a, b) {
   // YOUR CODE HERE
+ return a + b;
 }
 
 // Define a function named product that takes two arguments
@@ -14,8 +15,7 @@ function sum(a, b) {
 // Return the product of these two arguments
 function product(a, b) {
   // YOUR CODE HERE
-}
-
+return a * b}
 // Define a function named sumAndProduct that takes three arguments
 //    x (number)
 //    y (number)
@@ -27,7 +27,9 @@ function product(a, b) {
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Grouping
 function sumAndProduct(x, y, z) {
   // YOUR CODE HERE
-}
+  return ((x+y)*z);}
+//console.log((x+y)*y);
+
 
 // Define a function named roundUp that takes one argument
 //    decimal (number)
@@ -36,7 +38,8 @@ function sumAndProduct(x, y, z) {
 //
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil
 function roundUp(decimal) {
-  // YOUR CODE HERE
+  // YOUR CODE 
+  return (Math.ceil(decimal))
 }
 
 
@@ -45,8 +48,10 @@ function roundUp(decimal) {
 //
 // Return the argument converted to Fahrenheit rounded to the nearest integer.
 // Use Google to find the formula.
-function toFahrenheit(celcius) {
+function toFahrenheit(celsius) {
   // YOUR CODE HERE
+  return Math.round((9/5) * celsius + 32);
+
 }
 
 // Define a function named areaOfCircle that takes one argument
@@ -58,7 +63,8 @@ function toFahrenheit(celcius) {
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/PI
 function areaOfCircle(radius) {
   // YOUR CODE HERE
-}
+  return Math.PI * radius * radius
+} 
 
 // Define a function named areaOfRing that takes two arguments
 //    outerRadius (number)
@@ -68,6 +74,9 @@ function areaOfCircle(radius) {
 // the formula.
 function areaOfRing(outerRadius, innerRadius) {
   // YOUR CODE HERE
+var innerRadius = Math.PI * innerRadius ** 2
+var outerRadius = Math.PI * outerRadius ** 2
+return outerRadius - innerRadius
 }
 
 // Define a function named greet that takes 2 arguments
@@ -79,6 +88,7 @@ function areaOfRing(outerRadius, innerRadius) {
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Template_strings
 function greet(firstName, lastName) {
   // YOUR CODE HERE
+  return ('Hello,' + " " + firstName + " " + lastName + "!")
 }
 
 // Define a function named toSentence that takes four arguments
@@ -97,7 +107,13 @@ function greet(firstName, lastName) {
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#String_operators
 function toSentence(word1, word2, word3, oxfordComma) {
   // YOUR CODE HERE
+  if (oxfordComma) {
+    return word1 + ',' + " " +word2 + "," + " " + "and" + " " + word3 + '.'
+    } else{
+      return word1 + ',' + " " +word2  + " " + "and" + " " + word3 + '.'
+    }
 }
+
 
 // Define a function named toRoman that takes one argument
 //    arabic (number)
@@ -111,9 +127,36 @@ function toSentence(word1, word2, word3, oxfordComma) {
 //
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling#switch_statement
 
-function toRoman(arabic) {
-  // YOUR CODE HERE
-}
+  function toRoman(arabic) {
+    if (arabic < 1 || arabic > 10) {
+    return null;
+    } else{
+
+      switch (arabic) {
+        case 1:
+          return  'I';
+        case 2:
+          return  "II";
+        case 3:
+          return  "III";
+        case 4:
+          return  "IV";
+        case 5:
+          return  "V";
+        case 6:
+          return  "VI";
+        case 7:
+          return  "VII";
+          case 8:
+            return  "VIII";
+        case 9:
+          return  "IX";
+        case 10:
+          return  "X";
+      }
+    }
+  }
+
 
 // Define a function toDolla that takes one argument
 //    amount (number)
@@ -123,8 +166,10 @@ function toRoman(arabic) {
 //
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
 function toDolla(amount) {
-  // YOUR CODE HERE
-}
+    return '$' + amount.toFixed(2)
+
+ }
+
 
 
 // Define a function named percentage that takes two arguments
@@ -134,7 +179,8 @@ function toDolla(amount) {
 // Return the percentage of the first argument divided by the second. For
 // example, given 1 and 4, then return '25.0%'.
 function percentage(numerator, denominator) {
-  // YOUR CODE HERE
+  var percentage = numerator * 100 / denominator;
+  return percentage.toFixed(1) + '%';
 }
 
 
@@ -151,7 +197,11 @@ function percentage(numerator, denominator) {
 //
 // See https://dorey.github.io/JavaScript-Equality-Table/
 function isStrictlyEqual(value1, value2) {
-  // YOUR CODE HERE
+  if (value1 === value2){
+    return true
+}else{
+  return false  
+}
 }
 
 
@@ -166,7 +216,11 @@ function isStrictlyEqual(value1, value2) {
 //
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness#Loose_equality_using
 function isLooselyEqual(value1, value2) {
-  // YOUR CODE HERE
+  if (value1 == value2) {
+    return true
+  }else{
+    return false
+  }
 }
 
 
@@ -179,7 +233,7 @@ function isLooselyEqual(value1, value2) {
 //
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Remainder_()
 function remainder(numerator, denominator) {
-  // YOUR CODE HERE
+  return (numerator % denominator)
 }
 
 
@@ -193,8 +247,13 @@ function remainder(numerator, denominator) {
 //
 // Hint: What number will give you a remainder of 0 if the argument is even?
 function isEven(integer) {
-  // YOUR CODE HERE
-}
+  if (integer % 2 == 0) {
+    return true
+  }else{
+    return false
+    }
+  }
+
 
 
 // Define a function named isOdd that takes one argument
@@ -205,8 +264,12 @@ function isEven(integer) {
 // Otherwise
 //    Return false
 function isOdd(integer) {
-  // YOUR CODE HERE
-}
+  if (integer % 2 == 0) {
+    return false
+  }else{
+    return true
+    }
+  }
 
 
 // Define a function named isVowel that takes one argument
@@ -219,9 +282,11 @@ function isOdd(integer) {
 //
 // Treat 'y' as a consonant.
 function isVowel(string) {
-  // YOUR CODE HERE
-}
+  var satan = 'y'
+  return ("aeiouAEIOU".indexOf(string) !== -1);
+};
 
+  
 
 // Define a function named largestOfThree which takes three arguments
 //    value1 (number)
@@ -232,7 +297,7 @@ function isVowel(string) {
 //
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else
 function largestOfThree(value1, value2, value3) {
-  // YOUR CODE HERE
+return Math.max(value1, value2, value3)
 }
 
 
@@ -242,10 +307,7 @@ function largestOfThree(value1, value2, value3) {
 //    value3 (string)
 //
 // Return the longest argument by length
-//
-// See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length
-//
-// See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max
+
 // Define a function named longestOfThree which takes three arguments
 //    value1 (string)
 //    value2 (string)
@@ -257,8 +319,23 @@ function largestOfThree(value1, value2, value3) {
 //
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max
 function longestOfThree(value1, value2, value3) {
-  // YOUR CODE HERE
+var length1 = value1.length
+var length2 = value2.length
+var length3 = value3.length
+if (length1 > length2 && length1 > length3){
+  return value1
+} else if (length2 > length1 && length2 > length3){
+  return value2
 }
+else{
+return value3
+ }
+}
+
+
+
+//Fuck this shit. Why this shit is not working? Fuck! 
+// now it works, fuck y. try to solve the above by using a loop next time (while or for) 
 
 
 // Define a function named iceCreamPosition that takes two arguments
@@ -275,8 +352,26 @@ function longestOfThree(value1, value2, value3) {
 // Otherwise
 //    Return 'up to you'
 function iceCreamPosition(pieTemperature, iceCreamFlavor) {
-  // YOUR CODE HERE
+  var cardamon = 'cardamom'
+  var temperature = 'cold'
+  var put = 'on top'
+  var not = 'not at all'
+  var side = 'on the side'
+  var temp1 = 'warm'
+  var last1 = 'up to you'
+  if (iceCreamFlavor === cardamon) {
+    return not
+  } else if (pieTemperature === temperature) {
+    return put
+  }
+  else if (pieTemperature === temp1) {
+  return side
+} else {
+  return last1
 }
+ 
+  }
+
 
 
 // Define a function named isLeapYear that takes one argument
@@ -290,7 +385,20 @@ function iceCreamPosition(pieTemperature, iceCreamFlavor) {
 // See: https://en.wikipedia.org/wiki/Leap_year#Algorithm
 function isLeapYear(year) {
   // YOUR CODE HERE
+  if  (year % 4!==0) {
+    return false
+  }
+  if (year % 100 !==0) {
+      return true
+  }
+  if (year % 400 !==0) {
+       return false
+  }
+  return true
 }
+
+
+
 
 
 // Define a function named shout that takes one argument
@@ -301,7 +409,7 @@ function isLeapYear(year) {
 //
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 function shout(message) {
-  // YOUR CODE HERE
+  return message.toUpperCase()
 }
 
 
@@ -313,7 +421,7 @@ function shout(message) {
 //
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 function whisper(message) {
-  // YOUR CODE HERE
+  return 'shhh... ' + (message.toLowerCase());
 }
 
 
@@ -332,8 +440,12 @@ function whisper(message) {
 //
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
 function stopAt(source, stop) {
-  // YOUR CODE HERE
-}
+var ottoman = source.indexOf(stop)
+var turkey = source.substring(0, ottoman);
+var empire = turkey.trim()
+return empire
+
+ }
 
 
 // Define a function named capitalize that takes one argument
@@ -344,7 +456,8 @@ function stopAt(source, stop) {
 //
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring
 function capitalize(message) {
-  // YOUR CODE HERE
+var devil = message.charAt(0).toUpperCase() + message.slice(1)
+return devil
 }
 
 
@@ -356,8 +469,13 @@ function capitalize(message) {
 // If the argument's length is 5 or more characters
 //    Return the argument
 function leftPad5(word) {
-  // YOUR CODE HERE
-}
+ var example = 5
+ while (word.length < example) {
+   word = ' ' + word
+  }
+return word
+} 
+
 
 
 // Define a function named superPicky that takes one argument
@@ -370,11 +488,19 @@ function leftPad5(word) {
 //
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
 function superPicky(value) {
-  // YOUR CODE HERE
+var jamesdean = 'Thanks! Got it.'
+var vtype = typeof value 
+var pulp = 'I wanted a string, but all I got was a stinking ' + vtype
+if (typeof value === 'string')  {
+  return jamesdean
+} else {
+  return pulp
+}
 }
 
 
-// Define a function named calculateTaxRate that takes two arguments
+
+    // Define a function named calculateTaxRate that takes two arguments
 //    salary (number from 1 to 74,900)
 //    status (string that's either 'single' or 'joint')
 //
@@ -383,6 +509,38 @@ function superPicky(value) {
 // If the salary is greater than 74,900
 //    Return a string that says 'Better call an accountant'
 // Otherwise
+//    Return a string for the tax percentage they are in:
+//       * single up to (and including) $9,225 => '10%'
+//       * single above $9,225 => '15%'
+//       * joint up to (and including) $18,450 => '10%'
+//       * joint above $18,450 => '15%'
 function calculateTaxRate(salary, status) {
-  // YOUR CODE HERE
+var call = 'Better call an accountant'
+var Single_Mike = 'single'
+var Joint_Mike = 'joint'
+var salary_Mike = 74900
+var single_upto = '10%'
+var mariotest = '10%'
+var single_above = '15%'
+var nicktest = '15%'
+var single_amount = 9225
+var joint_upto = 18450
+if (status !== Single_Mike && status !== Joint_Mike) {
+  return call
+} else if (salary > salary_Mike) {
+  return call
+} else if (Single_Mike === status) {
+       if (salary > single_amount) {
+         return nicktest
+       } else {
+         return mariotest
+       }
+  }  else if (Joint_Mike === status) {
+    if (salary > joint_upto) {
+      return nicktest
+    } else {
+      return mariotest
+   }
+  }
 }
+  
